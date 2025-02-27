@@ -16,6 +16,7 @@ Se desarrolla, en un caso controlado, la disciplina de diseño, con el objetivo 
 |5|[pyBatalla](https://github.com/puntoReflex/pyBatalla/blob/main/enunciado.md)
 |6|[pyAscensores](https://github.com/puntoReflex/pyAscensores/blob/main/enunciado.md)
 |7|[pyExpendedoras](https://github.com/puntoReflex/pyExpendedoras/blob/main/enunciado.md)
+|8|[pyBibliotecas](https://github.com/puntoReflex/pyBiblioteca/blob/main/enunciado.md)
 
 </div>
 
