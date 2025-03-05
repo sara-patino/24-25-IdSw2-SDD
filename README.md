@@ -6,7 +6,7 @@ Se desarrolla, en un caso controlado, la disciplina de diseño, con el objetivo 
 
 <div align=center>
 
-| |Grupo|👁️|1º|[D](/documentos/entregas.d.md)|[DM](/documentos/entregas.dM.md)|[DOO](/documentos/entregas.dOO.md)|Final
+| |Proyecto|👁️|Grupo|[D](/documentos/entregas.d.md)|[DM](/documentos/entregas.dM.md)|[DOO](/documentos/entregas.dOO.md)|Final
 |-|-|:-:|:-:|:-:|:-:|:-:|:-:|
 | ||||12/3|12/4|12/5|31/5
 |1|[pyCCCF](https://github.com/puntoReflex/pyCCCF/blob/main/enunciado.md)
