@@ -37,3 +37,7 @@ Se desarrolla, en un caso controlado, la disciplina de diseño, con el objetivo 
 - Se debe utilizar el repo del coordinador del grupo y las herramientas de GitHub para gestionar las reuniones y comunicaciones entre el grupo, haciendo racional uso de la trazabilidad.
 - Las imágenes, en la medida de lo posible en formato plantUML.
   - Todas las fuentes en la carpeta modelosUML y las imágenes exportadas, en formato svg.
+ 
+### Muy importante
+
+- Para optar a ser calificado en los trabajos grupales, se tendrá en cuenta la asistencia a clases.
