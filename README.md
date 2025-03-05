@@ -9,15 +9,15 @@ Se desarrolla, en un caso controlado, la disciplina de diseño, con el objetivo 
 | |Proyecto|👁️|Grupo|[D](/documentos/entregas.d.md)|[DM](/documentos/entregas.dM.md)|[DOO](/documentos/entregas.dOO.md)|Final
 |-|-|:-:|:-:|:-:|:-:|:-:|:-:|
 | ||||12/3|12/4|12/5|31/5
-|1|[pyCCCF](https://github.com/puntoReflex/pyCCCF/blob/main/enunciado.md)
+|1|[pyCCCF](https://github.com/puntoReflex/pyCCCF/blob/main/enunciado.md)||G5
 |2|[pyMundo](https://github.com/puntoReflex/pyMundo/blob/main/enunciado.md)
-|3|[pyHojaDeCalculo](https://github.com/puntoReflex/pyHojaDeCalculo/blob/main/enunciado.md)
-|4|[pyAspiradora](https://github.com/puntoReflex/pyAspiradora/blob/main/enunciado.md)
-|5|[pyBatalla](https://github.com/puntoReflex/pyBatalla/blob/main/enunciado.md)
-|6|[pyAscensores](https://github.com/puntoReflex/pyAscensores/blob/main/enunciado.md)
-|7|[pyExpendedoras](https://github.com/puntoReflex/pyExpendedoras/blob/main/enunciado.md)
-|8|[pyBibliotecas](https://github.com/puntoReflex/pyBiblioteca/blob/main/enunciado.md)
-|9|[pyRestaurante](https://github.com/puntoReflex/pyRestaurante/blob/main/enunciado.md)
+|3|[pyHojaDeCalculo](https://github.com/puntoReflex/pyHojaDeCalculo/blob/main/enunciado.md)||G2
+|4|[pyAspiradora](https://github.com/puntoReflex/pyAspiradora/blob/main/enunciado.md)||G3
+|5|[pyBatalla](https://github.com/puntoReflex/pyBatalla/blob/main/enunciado.md)||G6
+|6|[pyAscensores](https://github.com/puntoReflex/pyAscensores/blob/main/enunciado.md)||G1
+|7|[pyExpendedoras](https://github.com/puntoReflex/pyExpendedoras/blob/main/enunciado.md)||G4
+|8|[pyBibliotecas](https://github.com/puntoReflex/pyBiblioteca/blob/main/enunciado.md)||G8
+|9|[pyRestaurante](https://github.com/puntoReflex/pyRestaurante/blob/main/enunciado.md)||G7
 
 </div>
 
