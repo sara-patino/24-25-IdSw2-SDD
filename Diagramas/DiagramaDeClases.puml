@@ -1,0 +1,45 @@
+@startuml
+
+Biblioteca o-- Elemento
+Biblioteca --o Usuario
+Elemento <.right. Usuario : usa
+Elemento *-- Documento
+Elemento *-- Servicio
+Servicio <|-- Aula
+Servicio <|-- Material
+Documento <|-- Libro
+Documento <|-- Revista
+Documento <|-- MaterialAudiovisual
+
+class Material {
+    }
+    
+class Elemento {
+    }
+    
+abstract class Documento {
+    }
+    
+class Usuario {
+    }
+    
+class Libro {
+    }
+    
+class Aula {
+    }
+    
+abstract class Servicio {
+    }
+    
+class Revista {
+    }
+    
+class MaterialAudiovisual {
+    }
+    
+class Biblioteca {
+
+    }
+
+@enduml
