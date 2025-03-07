@@ -1,0 +1,139 @@
+@startuml
+
+Biblioteca o-- Elemento
+Biblioteca --o Usuario
+Elemento <.right. Usuario : usa
+Elemento *-- Documento
+Elemento *-- Servicio
+Servicio <|-- Aula
+Servicio <|-- Material
+Documento <|-- Libro
+Documento <|-- Revista
+Documento <|-- MaterialAudiovisual
+
+class Material {
+    -String id
+    -String nombre
+    -String descripcion
+    -boolean disponible
+    +void prestar()
+    +void devolver()
+    +boolean estaDisponible()
+    +String getId()
+    +void setId(String id)
+    +String getNombre()
+    +void setNombre(String nombre)
+    +String getDescripcion()
+    +void setDescripcion(String descripcion)
+    +boolean isDisponible()
+    +void setDisponible(boolean disponible)
+}
+
+class Elemento {
+    -String id
+    -String nombre
+    +void agregarElemento()
+    +void eliminarElemento()
+    +void buscarElemento()
+    +String getId()
+    +void setId(String id)
+    +String getNombre()
+    +void setNombre(String nombre)
+}
+
+abstract class Documento {
+    -String titulo
+    -String autor
+    -int añoPublicacion
+    +void prestar()
+    +void devolver()
+    +boolean estaDisponible()
+    +String getTitulo()
+    +void setTitulo(String titulo)
+    +String getAutor()
+    +void setAutor(String autor)
+    +int getAñoPublicacion()
+    +void setAñoPublicacion(int añoPublicacion)
+}
+
+class Usuario {
+    -String id
+    -String nombre
+    -String correo
+    +void prestarElemento(Elemento elemento)
+    +void devolverElemento(Elemento elemento)
+    +void buscarElemento(String criterio)
+    +String getId()
+    +void setId(String id)
+    +String getNombre()
+    +void setNombre(String nombre)
+    +String getCorreo()
+    +void setCorreo(String correo)
+}
+
+class Libro {
+    -String isbn
+    -int numPaginas
+    +void leer()
+    +String getIsbn()
+    +void setIsbn(String isbn)
+    +int getNumPaginas()
+    +void setNumPaginas(int numPaginas)
+}
+
+class Aula {
+    -String id
+    -int capacidad
+    +void reservar()
+    +void liberar()
+    +String getId()
+    +void setId(String id)
+    +int getCapacidad()
+    +void setCapacidad(int capacidad)
+}
+
+abstract class Servicio {
+    -String id
+    -String nombre
+    +void ofrecerServicio()
+    +String getId()
+    +void setId(String id)
+    +String getNombre()
+    +void setNombre(String nombre)
+}
+
+class Revista {
+    -String issn
+    -int numero
+    +void leer()
+    +String getIssn()
+    +void setIssn(String issn)
+    +int getNumero()
+    +void setNumero(int numero)
+}
+
+class MaterialAudiovisual {
+    -String formato
+    -int duracion
+    +void reproducir()
+    +String getFormato()
+    +void setFormato(String formato)
+    +int getDuracion()
+    +void setDuracion(int duracion)
+}
+
+class Biblioteca {
+    -String nombre
+    -String direccion
+    +void agregarElemento(Elemento elemento)
+    +void eliminarElemento(Elemento elemento)
+    +void buscarElemento(String criterio)
+    +void registrarUsuario(Usuario usuario)
+    +void eliminarUsuario(Usuario usuario)
+    +String getNombre()
+    +void setNombre(String nombre)
+    +String getDireccion()
+    +void setDireccion(String direccion)
+}
+
+@enduml
