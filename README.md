@@ -4,6 +4,8 @@
 
 Este proyecto tiene como objetivo la digitalización del sistema de gestión de préstamos y recursos de una biblioteca universitaria. La biblioteca contiene diversos tipos de materiales y atiende a diferentes tipos de usuarios, permitiendo administrar préstamos, devoluciones, reservas y sanciones por retrasos. También se llevará un registro detallado del inventario y su disponibilidad.
 
+Proyecto: [pyBibliotecas](https://github.com/puntoReflex/pyBiblioteca/blob/main/enunciado.md)
+
 ## Requisitos Básicos
 
 ### Gestión de Inventario
