@@ -1,45 +1,161 @@
 @startuml
 
-Biblioteca o-- Elemento
+Biblioteca o-- Elementos
 Biblioteca --o Usuario
-Elemento <.right. Usuario : usa
-Elemento *-- Documento
-Elemento *-- Servicio
-Servicio <|-- Aula
-Servicio <|-- Material
-Documento <|-- Libro
-Documento <|-- Revista
-Documento <|-- MaterialAudiovisual
+Elementos <.right. Usuario : usa
+Elementos *-- Libro
+Elementos *-- Revista
+Elementos *-- Material
+Elementos *-- Aula
+Elementos *-- MaterialAudiovisual
+Servicio <|-up- Aula
+Servicio <|-up- Material
+Documento <|-up- Libro
+Documento <|-up- Revista
+Documento <|-up- MaterialAudiovisual
+Usuario <|-- Estudiante
+Usuario <|-- Profesor
+Usuario <|-- Visitante
+Usuario <|-- Administrativo
 
 class Material {
-    }
-    
-class Elemento {
-    }
-    
-abstract class Documento {
-    }
-    
-class Usuario {
-    }
-    
-class Libro {
-    }
-    
-class Aula {
-    }
-    
-abstract class Servicio {
-    }
-    
-class Revista {
-    }
-    
-class MaterialAudiovisual {
-    }
-    
-class Biblioteca {
+    +String nombre
+    +String descripcion
+    +String getId()
+    +void setId(String id)
+    +String getNombre()
+    +void setNombre(String nombre)
+    +String getDescripcion()
+    +void setDescripcion(String descripcion)
+}
 
-    }
+class Elementos {
+    +int id
+    +revistas: List<Revista> 
+    +libros: List<Libro> 
+    +materialaudiovisual: List<MaterialAudiovisual>
+    +material: List<Materiales>
+    +aula: List<Aulas>
+    +void agregarLibros()
+    +void agregarRevista()
+    +void agregarMaterialAudiovisual()
+    +void agregarAula()
+    +void agregarMaterial()
+    +void eliminarLibros(int id)
+    +void eliminarRevista(int id)
+    +void eliminarMaterialAudiovisual(int id)
+    +void eliminarAula(int id)
+    +void eliminarMaterial(int id)
+    +void buscarLibros(int id)
+    +void buscarRevista(int id)
+    +void buscarMaterialAudiovisual(int id)
+    +void buscaAula(int id)
+    +void buscaMaterial(int id)
+}
+
+abstract class Documento {
+    +int id
+    +String titulo
+    +String autor
+    +int añoPublicacion
+    -boolean disponible
+    +String getId()
+    +void setId(String id)
+    +String getTitulo()
+    +void setTitulo(String id)
+    +String getAutor()
+    +void setAutor(String id)
+    
+}
+
+class Usuario {
+    +int id
+    +String nombre
+    +String correo
+    +void prestarElemento(Elemento elemento)
+    +void devolverElemento(Elemento elemento)
+    +void buscarElemento(String criterio)
+    +String getId()
+    +void setId(String id)
+    +String getNombre()
+    +void setNombre(String nombre)
+    +String getCorreo()
+    +void setCorreo(String correo)
+}
+
+class Estudiante{
+  +int maxItemss = 5
+  +int maxTiempo = 15
+}
+
+class Profesor{
+  +int maxItemss = 10
+  +int maxTiempo = 30
+}
+
+class Administrativo{
+  +int maxItemss = 3
+  +int maxTiempo = 10
+}
+
+class Visitante{
+  +int maxItemss = 0
+  +int maxTiempo = 0
+}
+
+class Libro {
+    +String isbn
+    +int numPaginas
+    +String getIsbn()
+    +void setIsbn(String isbn)
+    +int getNumPaginas()
+    +void setNumPaginas(int numPaginas)
+}
+
+class Aula {
+    +int capacidad
+    +String getId()
+    +void setId(String id)
+    +int getCapacidad()
+    +void setCapacidad(int capacidad)
+}
+
+abstract class Servicio {
+    +int id
+    +String nombre
+    +boolean disponible
+}
+
+class Revista {
+    +String issn
+    +int numero
+    +String getIssn()
+    +void setIssn(String issn)
+    +int getNumero()
+    +void setNumero(int numero)
+}
+
+class MaterialAudiovisual {
+    +String formato
+    +int duracion
+    +String getFormato()
+    +void setFormato(String formato)
+    +int getDuracion()
+    +void setDuracion(int duracion)
+}
+
+class Biblioteca {
+    +String nombre
+    +String direccion
+    +void agregarElemento(Elemento elemento)
+    +void eliminarElemento(Elemento elemento)
+    +void buscarElemento(String criterio)
+    +void registrarUsuario(Usuario usuario)
+    +void eliminarUsuario(Usuario usuario)
+    +String getNombre()
+    +void setNombre(String nombre)
+    +String getDireccion()
+    +void setDireccion(String direccion)
+}
 
 @enduml
