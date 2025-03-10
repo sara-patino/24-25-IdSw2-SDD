@@ -1,161 +1,142 @@
 @startuml
 
-Biblioteca o-- Elementos
-Biblioteca --o Usuario
-Elementos <.right. Usuario : usa
-Elementos *-- Libro
-Elementos *-- Revista
-Elementos *-- Material
-Elementos *-- Aula
-Elementos *-- MaterialAudiovisual
-Servicio <|-up- Aula
-Servicio <|-up- Material
-Documento <|-up- Libro
-Documento <|-up- Revista
-Documento <|-up- MaterialAudiovisual
-Usuario <|-- Estudiante
-Usuario <|-- Profesor
-Usuario <|-- Visitante
-Usuario <|-- Administrativo
+LibraryManager o-- Elements
+LibraryManager --o User
+Elements <.right. User : usa
+Elements *-- Book
+Elements *-- Magazine
+Elements *-- Material
+Elements *-- Classroom
+Elements *-- Audiovisual
+Service <|-up- Classroom
+Service <|-up- Material
+Document <|-up- Book
+Document <|-up- Magazine
+Document <|-up- Audiovisual
+User <|-- Student
+User <|-- Professor
+User <|-- Guest
+User <|-- Manager
 
 class Material {
-    +String nombre
-    +String descripcion
+    +String name
+    +String description
     +String getId()
     +void setId(String id)
-    +String getNombre()
-    +void setNombre(String nombre)
-    +String getDescripcion()
-    +void setDescripcion(String descripcion)
+    +String getName()
+    +void setName(String name)
+    +String getDescription()
+    +void setDescription(String description)
 }
 
-class Elementos {
+class Elements {
     +int id
-    +revistas: List<Revista> 
-    +libros: List<Libro> 
-    +materialaudiovisual: List<MaterialAudiovisual>
-    +material: List<Materiales>
-    +aula: List<Aulas>
-    +void agregarLibros()
-    +void agregarRevista()
-    +void agregarMaterialAudiovisual()
-    +void agregarAula()
-    +void agregarMaterial()
-    +void eliminarLibros(int id)
-    +void eliminarRevista(int id)
-    +void eliminarMaterialAudiovisual(int id)
-    +void eliminarAula(int id)
-    +void eliminarMaterial(int id)
-    +void buscarLibros(int id)
-    +void buscarRevista(int id)
-    +void buscarMaterialAudiovisual(int id)
-    +void buscaAula(int id)
-    +void buscaMaterial(int id)
+    +magazines: List<Magazine> 
+    +books: List<Book> 
+    +alaudiovisual: List<Audiovisual>
+    +material: List<Material>
+    +classroom: List<Classroom>
+    +void addBook()
+    +void addMagazine()
+    +void addAudiovisual()
+    +void addClassroom()
+    +void addMaterial()
+    +void eraseBook(int id)
+    +void eraseMegazine(int id)
+    +void eraseAudiovisual(int id)
+    +void eraseClassroom(int id)
+    +void eraseMaterial(int id)
+    +void searchBook(int id)
+    +void searchMegazine(int id)
+    +void searchAudiovisual(int id)
+    +void searchClassroom(int id)
+    +void searchMaterial(int id)
 }
 
-abstract class Documento {
+abstract class Document {
     +int id
-    +String titulo
-    +String autor
-    +int añoPublicacion
-    -boolean disponible
+    +String title
+    +String author
+    +int publicationYear
+    -boolean available
     +String getId()
     +void setId(String id)
-    +String getTitulo()
-    +void setTitulo(String id)
-    +String getAutor()
-    +void setAutor(String id)
+    +String getTitle()
+    +void setTitle(String id)
+    +String getAuthor()
+    +void setAuthor(String id)
     
 }
 
-class Usuario {
+class User {
     +int id
-    +String nombre
-    +String correo
-    +void prestarElemento(Elemento elemento)
-    +void devolverElemento(Elemento elemento)
-    +void buscarElemento(String criterio)
+    +String name
+    +String email
+    +void borrowElement (Elements element)
+    +void returnElement (Elements element)
+    +void searchElement (String type)
     +String getId()
     +void setId(String id)
-    +String getNombre()
-    +void setNombre(String nombre)
-    +String getCorreo()
-    +void setCorreo(String correo)
+    +String getName()
+    +void setName(String name)
+    +String getEmail()
+    +void setEmail(String email)
 }
 
-class Estudiante{
-  +int maxItemss = 5
-  +int maxTiempo = 15
-}
-
-class Profesor{
-  +int maxItemss = 10
-  +int maxTiempo = 30
-}
-
-class Administrativo{
-  +int maxItemss = 3
-  +int maxTiempo = 10
-}
-
-class Visitante{
-  +int maxItemss = 0
-  +int maxTiempo = 0
-}
-
-class Libro {
+class Book {
     +String isbn
-    +int numPaginas
+    +int numPages
     +String getIsbn()
     +void setIsbn(String isbn)
-    +int getNumPaginas()
-    +void setNumPaginas(int numPaginas)
+    +int getNumPages()
+    +void setNumPages(int numPages)
 }
 
-class Aula {
-    +int capacidad
+class Classroom {
+    +int capacity
     +String getId()
     +void setId(String id)
-    +int getCapacidad()
-    +void setCapacidad(int capacidad)
+    +int getCapacity()
+    +void setCapacity(int capacity)
 }
 
-abstract class Servicio {
+abstract class Service {
     +int id
-    +String nombre
-    +boolean disponible
+    +String name
+    +boolean available
 }
 
-class Revista {
+class Magazine {
     +String issn
-    +int numero
+    +int number
     +String getIssn()
     +void setIssn(String issn)
-    +int getNumero()
-    +void setNumero(int numero)
+    +int getNumber()
+    +void setNumber(int number)
 }
 
-class MaterialAudiovisual {
-    +String formato
-    +int duracion
-    +String getFormato()
-    +void setFormato(String formato)
-    +int getDuracion()
-    +void setDuracion(int duracion)
+class Audiovisual {
+    +String format
+    +int duration
+    +String getFormat()
+    +void setFormat(String format)
+    +int getDuration()
+    +void setDuration(int duration)
 }
 
-class Biblioteca {
-    +String nombre
-    +String direccion
-    +void agregarElemento(Elemento elemento)
-    +void eliminarElemento(Elemento elemento)
-    +void buscarElemento(String criterio)
-    +void registrarUsuario(Usuario usuario)
-    +void eliminarUsuario(Usuario usuario)
-    +String getNombre()
-    +void setNombre(String nombre)
-    +String getDireccion()
-    +void setDireccion(String direccion)
+class LibraryManager {
+    +String name
+    +String direction
+    +void addElement(Elements element)
+    +void deleteElement(Elements element)
+    +void searchElement(String type)
+    +void registerUser(User user)
+    +void deleteUser(User user)
+    +String getName()
+    +void setName(String name)
+    +String getDirection()
+    +void setDirection(String direction)
 }
 
 @enduml
+
