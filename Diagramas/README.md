@@ -3,4 +3,4 @@
 
 | Diagrama | Código Fuente |
 |----------|---------------|
-| ![Diagrama de Clases](/images/modelosUML/Diagrama.svg) | [Ver código](/Diagramas/DiagramaDeClases.puml) |
+| ![Diagrama de Clases](/images/modelosUML/DiagramaDeClases.svg) | [Ver código](/Diagramas/DiagramaDeClases.puml) |
