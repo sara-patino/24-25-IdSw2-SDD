@@ -1,6 +1,6 @@
-public class MaterialAudiovisual extends Documento {
-    private String formato;
-    private int duracion;
+public class AudioVisual extends Document {
+    public String formato;
+    public int duracion;
 
     public String getFormato() {
         return formato;
