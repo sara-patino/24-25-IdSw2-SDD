@@ -1,0 +1,26 @@
+@startuml DiagramaDeObjetos
+title Gestión de Biblioteca
+
+object "mujercitas : Book" as mujercitas
+object "revista1 : Magazine" as revista1
+object "camara : Material" as camara
+object "aula1 : Classroom" as aula1
+object "audiovisual1 : Audiovisual" as audiovisual1
+object "usuario1 : User" as profesor
+object "bibliotecario1 : LibraryManager" as bibliotecario1
+object "elementos1 : Elements" as elementos1
+
+bibliotecario1 --* elementos1 : "gestiona"
+bibliotecario1 --o profesor : "registra"
+
+elementos1 o-- mujercitas : "contiene"
+elementos1 o-- revista1 : "contiene"
+elementos1 o-- camara : "contiene"
+elementos1 o-- aula1 : "contiene"
+elementos1 o-- audiovisual1 : "contiene"
+
+
+
+profesor --> elementos1 : "usa"
+
+@enduml
