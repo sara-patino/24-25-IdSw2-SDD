@@ -1,17 +1,16 @@
-public abstract class Documento {
-    private static int contadorId = 0;
-    private int id;
-    private String titulo;
-    private String autor;
-    private int añoPublicacion;
-    private boolean disponible;
-
-    public Documento() {
-        this.id = ++contadorId;
-    }
+public abstract class Document {
+    public int id;
+    public String titulo;
+    public String autor;
+    public int añoPublicacion;
+    public boolean disponible;
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitulo() {

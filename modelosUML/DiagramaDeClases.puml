@@ -16,10 +16,6 @@ Document <|-up- Audiovisual
 
 class Material {
     +String description
-    +String getId()
-    +void setId(String id)
-    +String getName()
-    +void setName(String name)
     +String getDescription()
     +void setDescription(String description)
 }
@@ -92,8 +88,6 @@ class Book {
 
 class Classroom {
     +int capacity
-    +String getId()
-    +void setId(String id)
     +int getCapacity()
     +void setCapacity(int capacity)
 }
@@ -110,11 +104,11 @@ abstract class Service {
 
 class Magazine {
     +String issn
-    +int number
+    +int numberPages
     +String getIssn()
     +void setIssn(String issn)
-    +int getNumber()
-    +void setNumber(int number)
+    +int getNumberPages()
+    +void setNumberPages(int number)
 }
 
 class Audiovisual {
