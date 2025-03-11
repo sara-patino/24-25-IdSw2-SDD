@@ -1,6 +1,8 @@
 @startuml
 
 LibraryManager o-- Elements
+LibraryManager --o User
+Elements <.right. User : uses
 Elements *-- Book
 Elements *-- Magazine
 Elements *-- Material
@@ -11,17 +13,8 @@ Service <|-up- Material
 Document <|-up- Book
 Document <|-up- Magazine
 Document <|-up- Audiovisual
-User <|-up- Student
-User <|-up- Professor
-User <|-up- Guest
-User <|-up- Manager
-Manager <.left. Elements
-Student <.left. Elements
-Professor <.left. Elements
-Guest <.left. Elements
 
 class Material {
-    +String name
     +String description
     +String getId()
     +void setId(String id)
@@ -74,6 +67,9 @@ class User {
     +int id
     +String name
     +String email
+    +String type
+    +int maxItems
+    +int maxDays
     +void borrowElement (Elements element)
     +void returnElement (Elements element)
     +void searchElement (String type)
@@ -142,26 +138,6 @@ class LibraryManager {
     +void setName(String name)
     +String getDirection()
     +void setDirection(String direction)
-}
-
-class Student{
-    +int maxItems = 5
-    +int maxDays = 15
-}
-
-class Professor{
-    +int maxItems = 10
-    +int maxDays = 30
-}
-
-class Manager{
-    +int maxItems = 3
-    +int maxDays = 10
-}
-
-class Guest{
-    +int maxItems = 0
-    +int maxDays = 0
 }
 
 @enduml
