@@ -13,6 +13,18 @@ Service <|-up- Material
 Document <|-up- Book
 Document <|-up- Magazine
 Document <|-up- Audiovisual
+User <|-- Student
+User <|-- Professor
+User <|-- Guest
+User <|-- Manager
+
+class Material {
+    +String name
+    +String description
+    +String getId()
+    +void setId(String id)
+    +String getName()
+    +void setName(String name)
 
 class Material {
     +String description
@@ -88,6 +100,8 @@ class Book {
 
 class Classroom {
     +int capacity
+    +String getId()
+    +void setId(String id)
     +int getCapacity()
     +void setCapacity(int capacity)
 }
@@ -104,6 +118,11 @@ abstract class Service {
 
 class Magazine {
     +String issn
+    +int number
+    +String getIssn()
+    +void setIssn(String issn)
+    +int getNumber()
+    +void setNumber(int number)
     +int numberPages
     +String getIssn()
     +void setIssn(String issn)
