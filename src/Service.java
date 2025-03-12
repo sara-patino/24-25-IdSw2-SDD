@@ -1,12 +1,7 @@
-public abstract class Servicio {
-    private static int contadorId = 0;
-    private int id;
-    private String nombre;
-    private boolean disponible;
-
-    public Servicio() {
-        this.id = ++contadorId;
-    }
+public abstract class Service {
+    public int id;
+    public String nombre;
+    public boolean disponible;
 
     public int getId() {
         return id;

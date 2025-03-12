@@ -2,7 +2,7 @@
 
 LibraryManager o-- Elements
 LibraryManager --o User
-Elements <.right. User : usa
+Elements <.right. User : uses
 Elements *-- Book
 Elements *-- Magazine
 Elements *-- Material
@@ -25,6 +25,9 @@ class Material {
     +void setId(String id)
     +String getName()
     +void setName(String name)
+
+class Material {
+    +String description
     +String getDescription()
     +void setDescription(String description)
 }
@@ -58,7 +61,7 @@ abstract class Document {
     +String title
     +String author
     +int publicationYear
-    -boolean available
+    +boolean available
     +String getId()
     +void setId(String id)
     +String getTitle()
@@ -72,6 +75,9 @@ class User {
     +int id
     +String name
     +String email
+    +String type
+    +int maxItems
+    +int maxDays
     +void borrowElement (Elements element)
     +void returnElement (Elements element)
     +void searchElement (String type)
@@ -104,6 +110,10 @@ abstract class Service {
     +int id
     +String name
     +boolean available
+    +String getId()
+    +void setId(String id)
+    +String getName()
+    +void setName(String id)
 }
 
 class Magazine {
@@ -113,6 +123,11 @@ class Magazine {
     +void setIssn(String issn)
     +int getNumber()
     +void setNumber(int number)
+    +int numberPages
+    +String getIssn()
+    +void setIssn(String issn)
+    +int getNumberPages()
+    +void setNumberPages(int number)
 }
 
 class Audiovisual {
@@ -139,4 +154,3 @@ class LibraryManager {
 }
 
 @enduml
-
