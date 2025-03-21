@@ -15,16 +15,9 @@ Document <|-up- Magazine
 Document <|-up- Audiovisual
 User <|-- Student
 User <|-- Professor
-User <|-- Guest
-User <|-- Manager
-
-class Material {
-    +String name
-    +String description
-    +String getId()
-    +void setId(String id)
-    +String getName()
-    +void setName(String name)
+User <|-- Administrative
+User <|-- Visitor
+User "1" <-- "*" Loan 
 
 class Material {
     +String description
@@ -68,25 +61,49 @@ abstract class Document {
     +void setTitle(String id)
     +String getAuthor()
     +void setAuthor(String id)
-    
 }
 
-class User {
+abstract class User {
     +int id
     +String name
     +String email
     +String type
     +int maxItems
     +int maxDays
-    +void borrowElement (Elements element)
-    +void returnElement (Elements element)
-    +void searchElement (String type)
+    +List<Double> fines
+    +List<Loan> activeLoans
+    +void borrowElement(Elements element)
+    +void returnElement(Elements element)
+    +void searchElement(String type)
     +String getId()
     +void setId(String id)
     +String getName()
     +void setName(String name)
     +String getEmail()
     +void setEmail(String email)
+    +void addFine(double amount)
+    +List<Double> getFines()
+    +boolean hasCapacity()
+}
+
+class Student {
+    +maxItems = 5
+    +maxDays = 15
+}
+
+class Professor {
+    +maxItems = 10
+    +maxDays = 30
+}
+
+class Administrative {
+    +maxItems = 3
+    +maxDays = 10
+}
+
+class Visitor {
+    +maxItems = 0
+    +maxDays = 0
 }
 
 class Book {
@@ -100,8 +117,6 @@ class Book {
 
 class Classroom {
     +int capacity
-    +String getId()
-    +void setId(String id)
     +int getCapacity()
     +void setCapacity(int capacity)
 }
@@ -118,11 +133,6 @@ abstract class Service {
 
 class Magazine {
     +String issn
-    +int number
-    +String getIssn()
-    +void setIssn(String issn)
-    +int getNumber()
-    +void setNumber(int number)
     +int numberPages
     +String getIssn()
     +void setIssn(String issn)
@@ -142,6 +152,7 @@ class Audiovisual {
 class LibraryManager {
     +String name
     +String direction
+    +List<Loan> loans
     +void addElement(Elements element)
     +void deleteElement(Elements element)
     +void searchElement(String type)
@@ -151,6 +162,23 @@ class LibraryManager {
     +void setName(String name)
     +String getDirection()
     +void setDirection(String direction)
+    +void registerLoan(User user, Elements item)
+    +void registerReturn(User user, Elements item, Date returnDate)
+}
+
+class Loan {
+    +int id
+    +User user
+    +Elements element
+    +Date loanDate
+    +Date dueDate
+    +boolean isReturned
+    +int delayDays
+    +void registerLoan(User user, Elements item)
+    +void registerReturn(Date returnDate)
+    +boolean verifyCapacity(User user)
+    +boolean verifyAvailability(Elements item)
+    +int calculateDelay(Date returnDate)
 }
 
 @enduml
