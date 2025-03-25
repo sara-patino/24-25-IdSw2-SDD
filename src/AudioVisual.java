@@ -1,20 +1,20 @@
 public class AudioVisual extends Document {
-    public String formato;
-    public int duracion;
+    public String format;
+    public int duration;
 
-    public String getFormato() {
-        return formato;
+    public String getFormat() {
+        return format;
     }
 
-    public void setFormato(String formato) {
-        this.formato = formato;
+    public void setFormat(String format) {
+        this.format = format;
     }
 
-    public int getDuracion() {
-        return duracion;
+    public int getDuration() {
+        return duration;
     }
 
-    public void setDuracion(int duracion) {
-        this.duracion = duracion;
+    public void setDuration(int duration) {
+        this.duration = duration;
     }
 }

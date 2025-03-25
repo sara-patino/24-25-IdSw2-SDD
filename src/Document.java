@@ -1,9 +1,9 @@
 public abstract class Document {
     public int id;
-    public String titulo;
-    public String autor;
-    public int añoPublicacion;
-    public boolean disponible;
+    public String title;
+    public String author;
+    public int publicationYear;
+    public boolean available;
 
     public int getId() {
         return id;
@@ -13,35 +13,35 @@ public abstract class Document {
         this.id = id;
     }
 
-    public String getTitulo() {
-        return titulo;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getAutor() {
-        return autor;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setAutor(String autor) {
-        this.autor = autor;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public int getAñoPublicacion() {
-        return añoPublicacion;
+        return publicationYear;
     }
 
-    public void setAñoPublicacion(int añoPublicacion) {
-        this.añoPublicacion = añoPublicacion;
+    public void publicationYear(int publicationYear) {
+        this.publicationYear = publicationYear;
     }
 
     public boolean isDisponible() {
-        return disponible;
+        return available;
     }
 
-    public void setDisponible(boolean disponible) {
-        this.disponible = disponible;
+    public void setAvailable(boolean available) {
+        this.available = available;
     }
 }
