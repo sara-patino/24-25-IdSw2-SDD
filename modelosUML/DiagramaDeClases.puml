@@ -1,13 +1,15 @@
 @startuml
-
-LibraryManager o-- Elements
+Main --> LibraryManager : "instancia y ejecuta"
+LibraryManager o-- Storage
 LibraryManager --o User
-Elements <.right. User : uses
-Elements *-- Book
-Elements *-- Magazine
-Elements *-- Material
-Elements *-- Classroom
-Elements *-- Audiovisual
+LibraryManager -- Loan
+Storage -right- Loan
+Loan -right- User
+Storage *-- Book
+Storage *-- Magazine
+Storage *-- Material
+Storage *-- Classroom
+Storage *-- Audiovisual
 Service <|-up- Classroom
 Service <|-up- Material
 Document <|-up- Book
@@ -20,28 +22,28 @@ class Material {
     +void setDescription(String description)
 }
 
-class Elements {
-    +int id
-    +magazines: List<Magazine> 
-    +books: List<Book> 
-    +alaudiovisual: List<Audiovisual>
-    +material: List<Material>
-    +classroom: List<Classroom>
-    +void addBook()
-    +void addMagazine()
-    +void addAudiovisual()
-    +void addClassroom()
-    +void addMaterial()
-    +void eraseBook(int id)
-    +void eraseMegazine(int id)
-    +void eraseAudiovisual(int id)
-    +void eraseClassroom(int id)
-    +void eraseMaterial(int id)
-    +void searchBook(int id)
-    +void searchMegazine(int id)
-    +void searchAudiovisual(int id)
-    +void searchClassroom(int id)
-    +void searchMaterial(int id)
+class Storage {
+    + int id
+    + magazines: List<Magazine> 
+    + books: List<Book> 
+    + audiovisuals: List<Audiovisual>
+    + materials: List<Material>
+    + classrooms: List<Classroom>
+    + void addBook(Book book)
+    + void addMagazine(Magazine magazine)
+    + void addAudiovisual(Audiovisual audiovisual)
+    + void addClassroom(Classroom classroom)
+    + void addMaterial(Material material)
+    + void eraseBook(int id)
+    + void eraseMagazine(int id)
+    + void eraseAudiovisual(int id)
+    + void eraseClassroom(int id)
+    + void eraseMaterial(int id)
+    + Book getBookById(int id)
+    + Magazine getMagazineById(int id)
+    + Audiovisual getAudiovisualById(int id)
+    + Classroom getClassroomById(int id)
+    + Material getMaterialById(int id)
 }
 
 abstract class Document {
@@ -65,16 +67,15 @@ class User {
     +String email
     +String type
     +int maxItems
-    +int maxDays
-    +void borrowElement (Elements element)
-    +void returnElement (Elements element)
-    +void searchElement (String type)
+    +void returnStorage (Storage storagte)
     +String getId()
     +void setId(String id)
     +String getName()
     +void setName(String name)
     +String getEmail()
     +void setEmail(String email)
+    +String getType()
+    +void setType(String type)
 }
 
 class Book {
@@ -122,16 +123,28 @@ class Audiovisual {
 
 class LibraryManager {
     +String name
-    +String direction
-    +void addElement(Elements element)
-    +void deleteElement(Elements element)
-    +void searchElement(String type)
-    +void registerUser(User user)
-    +void deleteUser(User user)
-    +String getName()
-    +void setName(String name)
-    +String getDirection()
-    +void setDirection(String direction)
+    +Storage storage
+    +users: List<User>
+    +loans: List<Loan>
+    +void addUser(String name, String email, String type)
+    +void addLoan(User user, Loan loan)
+    +String getUsers()
+    +String getLoans
+}
+
+class Main {
+    +LibraryManager libraryManager
+    +static void main(String[] args)
+    +void startSimulation()
+}
+
+class Loan {
+  +int maxDays
+  +User User
+  +Storage storage
+  +void setMaxDays()
+  +int getMaxDays()
+  +void createLoan(int maxDays, User user)
 }
 
 @enduml
