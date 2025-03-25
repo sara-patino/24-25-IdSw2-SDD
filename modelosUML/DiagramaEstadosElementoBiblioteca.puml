@@ -1,0 +1,17 @@
+@startuml
+
+State "Estado del Elemento" as ElementoBiblioteca {
+  [*] --> Disponible : Elemento agregado
+
+  Disponible --> Prestado : Usuario lo toma prestado
+  Prestado --> Disponible : Usuario lo devuelve
+
+  Disponible --> Reservado : Usuario lo reserva
+  Reservado --> Prestado : Usuario confirma el préstamo
+  Reservado --> Disponible : Reserva cancelada
+
+  Disponible --> Eliminado : Administrador lo elimina
+  Prestado --> Eliminado : Administrador lo elimina (no devuelto a tiempo)
+}
+
+@enduml
