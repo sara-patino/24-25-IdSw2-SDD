@@ -1,25 +1,25 @@
 public abstract class Service {
     public int id;
-    public String nombre;
-    public boolean disponible;
+    public String name;
+    public boolean available;
 
     public int getId() {
         return id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public boolean isDisponible() {
-        return disponible;
+        return available;
     }
 
-    public void setDisponible(boolean disponible) {
-        this.disponible = disponible;
+    public void setAvailable(boolean available) {
+        this.available = available;
     }
 }
