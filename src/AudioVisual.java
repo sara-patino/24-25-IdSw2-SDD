@@ -1,4 +1,4 @@
-public class AudioVisual extends Document {
+public class Audiovisual extends Document {
     public String format;
     public int duration;
 
