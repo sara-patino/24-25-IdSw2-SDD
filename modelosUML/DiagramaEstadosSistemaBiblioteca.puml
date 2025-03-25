@@ -1,0 +1,23 @@
+@startuml
+
+State SistemaBiblioteca {
+  [*] --> Inactivo
+
+  Inactivo --> Buscando : Usuario busca un elemento
+  Buscando --> Inactivo : Elemento no encontrado
+  Buscando --> SolicitandoPrestamo : Elemento encontrado y disponible
+
+  SolicitandoPrestamo --> Inactivo : Préstamo aprobado
+  SolicitandoPrestamo --> Buscando : Usuario busca otro elemento
+
+  Inactivo --> Devolviendo : Usuario devuelve un elemento
+  Devolviendo --> Inactivo : Devolución completada
+
+  Inactivo --> AgregandoElemento : Administrador agrega un elemento
+  AgregandoElemento --> Inactivo : Elemento agregado
+
+  Inactivo --> EliminandoElemento : Administrador elimina un elemento
+  EliminandoElemento --> Inactivo : Elemento eliminado
+}
+
+@enduml
