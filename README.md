@@ -4,7 +4,7 @@
 
 Este proyecto tiene como objetivo la digitalización del sistema de gestión de préstamos y recursos de una biblioteca universitaria. La biblioteca contiene diversos tipos de materiales y atiende a diferentes tipos de usuarios, permitiendo administrar préstamos, devoluciones, reservas y sanciones por retrasos. También se llevará un registro detallado del inventario y su disponibilidad.
 
-- [¿Qué es? ¿Cuál es la problemática? ¿Cuál es el objetivo de este proyecto?](https://github.com/puntoReflex/pyBiblioteca/blob/main/enunciado.md)
+- [¿Qué es? ¿Cuál es la problemática? ¿Cuál es el objetivo de este proyecto?](/introduccion/introduccion.md)
 
 
 
