@@ -1,10 +1,10 @@
 @startuml
 Main --> LibraryManager : "instancia y ejecuta"
 LibraryManager o-- Storage
-LibraryManager --o User
-LibraryManager -- Loan
-Storage -right- Loan
-Loan -right- User
+LibraryManager o-- User
+LibraryManager o-- Loan
+Storage -right-* Loan
+Loan *-right- User
 Storage *-- Book
 Storage *-- Magazine
 Storage *-- Material
@@ -17,18 +17,18 @@ Document <|-up- Magazine
 Document <|-up- Audiovisual
 
 class Material {
-    +String description
+    -String description
     +String getDescription()
     +void setDescription(String description)
 }
 
 class Storage {
-    + int id
-    + magazines: List<Magazine> 
-    + books: List<Book> 
-    + audiovisuals: List<Audiovisual>
-    + materials: List<Material>
-    + classrooms: List<Classroom>
+    - int id
+    - magazines: List<Magazine> 
+    - books: List<Book> 
+    - audiovisuals: List<Audiovisual>
+    - materials: List<Material>
+    - classrooms: List<Classroom>
     + void addBook(Book book)
     + void addMagazine(Magazine magazine)
     + void addAudiovisual(Audiovisual audiovisual)
@@ -47,11 +47,11 @@ class Storage {
 }
 
 abstract class Document {
-    +int id
-    +String title
-    +String author
-    +int publicationYear
-    +boolean available
+    -int id
+    -String title
+    -String author
+    -int publicationYear
+    -boolean available
     +String getId()
     +void setId(String id)
     +String getTitle()
@@ -62,12 +62,12 @@ abstract class Document {
 }
 
 class User {
-    +int id
-    +String name
-    +String email
-    +String type
-    +int maxItems
-    +void returnStorage (Storage storagte)
+    -int id
+    -String name
+    -String email
+    -String type
+    -int maxItems
+
     +String getId()
     +void setId(String id)
     +String getName()
@@ -79,8 +79,8 @@ class User {
 }
 
 class Book {
-    +String isbn
-    +int numPages
+    -String isbn
+    -int numPages
     +String getIsbn()
     +void setIsbn(String isbn)
     +int getNumPages()
@@ -88,15 +88,15 @@ class Book {
 }
 
 class Classroom {
-    +int capacity
+    -int capacity
     +int getCapacity()
     +void setCapacity(int capacity)
 }
 
 abstract class Service {
-    +int id
-    +String name
-    +boolean available
+    -int id
+    -String name
+    -boolean available
     +String getId()
     +void setId(String id)
     +String getName()
@@ -104,8 +104,8 @@ abstract class Service {
 }
 
 class Magazine {
-    +String issn
-    +int numberPages
+    -String issn
+    -int numberPages
     +String getIssn()
     +void setIssn(String issn)
     +int getNumberPages()
@@ -113,8 +113,8 @@ class Magazine {
 }
 
 class Audiovisual {
-    +String format
-    +int duration
+    -String format
+    -int duration
     +String getFormat()
     +void setFormat(String format)
     +int getDuration()
@@ -122,29 +122,31 @@ class Audiovisual {
 }
 
 class LibraryManager {
-    +String name
-    +Storage storage
-    +users: List<User>
-    +loans: List<Loan>
+    -String name
+    -Storage storage
+    -users: List<User>
+    -loans: List<Loan>
     +void addUser(String name, String email, String type)
     +void addLoan(User user, Loan loan)
     +String getUsers()
     +String getLoans
+    +void addElementToStorage()
+    +Storage getStorage()
 }
 
 class Main {
-    +LibraryManager libraryManager
+    -LibraryManager libraryManager
     +static void main(String[] args)
     +void startSimulation()
 }
 
 class Loan {
-  +int maxDays
-  +User User
-  +Storage storage
+  -int maxDays
+  -User user
+  -Storage storage
   +void setMaxDays()
   +int getMaxDays()
-  +void createLoan(int maxDays, User user)
+  +void createLoan(User user, Storage storage)
 }
 
 @enduml
