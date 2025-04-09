@@ -5,7 +5,7 @@ public class Storage {
     private int id;
     private List<Magazine> magazines = new ArrayList<>();
     private List<Book> books = new ArrayList<>();
-    private List<Audiovisual> audiovisuals = new ArrayList<>();
+    private List<AudioVisual> audiovisuals = new ArrayList<>();
     private List<Material> materials = new ArrayList<>();
     private List<Classroom> classrooms = new ArrayList<>();
 
@@ -17,7 +17,7 @@ public class Storage {
         magazines.add(magazine);
     }
 
-    public void addAudiovisual(Audiovisual audiovisual) {
+    public void addAudiovisual(AudioVisual audiovisual) {
         audiovisuals.add(audiovisual);
     }
 
@@ -57,7 +57,7 @@ public class Storage {
         return magazines.stream().filter(m -> m.getId() == id).findFirst().orElse(null);
     }
 
-    public Audiovisual getAudiovisualById(int id) {
+    public AudioVisual getAudiovisualById(int id) {
         return audiovisuals.stream().filter(a -> a.getId() == id).findFirst().orElse(null);
     }
 
