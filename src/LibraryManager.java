@@ -5,13 +5,13 @@ public class LibraryManager {
     private Storage storage;
     private List<User> users;
     private List<Loan> loans;
-    
+
     public LibraryManager() {
         storage = new Storage();
         users = new ArrayList<>();
         loans = new ArrayList<>();
     }
-    
+
     public void addUser(String name, String email, String type) {
         int maxItems;
         switch (type.toLowerCase()) {
@@ -32,11 +32,11 @@ public class LibraryManager {
         }
         users.add(new User(users.size() + 1, name, email, type, maxItems));
     }
-    
+
     public Storage getStorage() {
         return storage;
     }
-    
+
     public void showSearch(String keyword) {
         List<Loanable> results = storage.search(keyword);
         System.out.println("SEARCH: \"" + keyword + "\"");
@@ -45,7 +45,7 @@ public class LibraryManager {
             System.out.println(i++ + ". " + item.display());
         }
     }
-    
+
     public void createLoan(int userId, int itemId, String itemType, int maxDays) {
         User user = getUserById(userId);
         Loanable item = null;
@@ -86,7 +86,7 @@ public class LibraryManager {
         loans.add(loan);
         System.out.println("Loan created: " + loan.display());
     }
-    
+
     public void processReturn(int loanIndex) {
         if (loanIndex < 0 || loanIndex >= loans.size()) {
             System.out.println("Invalid loan.");
@@ -96,14 +96,14 @@ public class LibraryManager {
         long delayDays = loan.processReturn();
         if (delayDays > 0) {
             loan.getUser().addSuspension((int) delayDays);
-            System.out.println("Late return by " + delayDays + " day(s). User " 
-                               + loan.getUser().display() + " suspended for " + delayDays + " day(s).");
+            System.out.println("Late return by " + delayDays + " day(s). User "
+                    + loan.getUser().display() + " suspended for " + delayDays + " day(s).");
         } else {
             System.out.println("Return on time.");
         }
         loans.remove(loanIndex);
     }
-    
+
     public void showInventory() {
         System.out.println("--- Inventory ---");
         System.out.println("Books:");
@@ -123,28 +123,52 @@ public class LibraryManager {
             System.out.println(m.display());
         }
     }
-    
+
     public void showActiveLoans() {
         System.out.println("--- Active Loans ---");
         for (Loan loan : loans) {
             System.out.println(loan.display());
         }
     }
-    
+
     public void showUsers() {
         System.out.println("--- Users ---");
         for (User user : users) {
             System.out.println(user.display() + " - Suspension: " + user.getSuspendedDays() + " day(s)");
         }
     }
-    
+
     public User getUserById(int userId) {
         for (User u : users) {
-            if (u.getId() == userId) return u;
+            if (u.getId() == userId)
+                return u;
         }
         return null;
     }
-    
+
+    public User getUserByEmail(String email) {
+        for (User user : users) {
+            if (user.getEmail().equalsIgnoreCase(email)) {
+                return user;
+            }
+        }
+        return null;
+    }
+
+    public void showActiveLoansByUser(User user) {
+        System.out.println("--- Active Loans for " + user.display() + " ---");
+        boolean found = false;
+        for (Loan loan : loans) {
+            if (loan.getUser().getId() == user.getId()) {
+                System.out.println(loan.display());
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.println("No active loans for this user.");
+        }
+    }
+
     private int getUserLoanCount(User user) {
         int count = 0;
         for (Loan loan : loans) {
@@ -153,8 +177,7 @@ public class LibraryManager {
         }
         return count;
     }
-    
-    // (Optional) Getter for the loans list.
+
     public List<Loan> getLoans() {
         return loans;
     }
