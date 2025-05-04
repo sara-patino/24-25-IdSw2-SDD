@@ -5,16 +5,14 @@ LibraryManager o-- User
 LibraryManager o-- Loan
 Storage -right-* Loan
 Loan *-right- User
-Storage *-- Book
-Storage *-- Magazine
-Storage *-- Material
-Storage *-- Classroom
-Storage *-- Audiovisual
-Service <|-up- Classroom
-Service <|-up- Material
-Document <|-up- Book
-Document <|-up- Magazine
-Document <|-up- Audiovisual
+Storage *-- Document
+Storage *-- Service
+
+Service <|-- Classroom
+Service <|-- Material
+Document <|-- Book
+Document <|-- Magazine
+Document <|-- Audiovisual
 
 class Material {
     -String description
