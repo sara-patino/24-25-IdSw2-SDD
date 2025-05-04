@@ -6,37 +6,8 @@ Este proyecto tiene como objetivo la digitalización del sistema de gestión de 
 
 - [¿Qué es? ¿Cuál es la problemática? ¿Cuál es el objetivo de este proyecto?](/introduccion/introduccion.md)
 
+📌[Modelo del dominio](/ModeloDeDominio/README.md)
 
+📌[Evolución del modelo de dominio a lo largo del semestre](/ModeloDelDominio/EvolucioneModeloDelDominio.md)
 
-<table>
-<tr>
-<th>
-  
-### Modelo de Dominio
-</th>
-<th>
-
-### Disciplina de Requisitos
-
-</th>
-</tr>
-<tr></tr>
-  <tr>
-    <td valign=top>
-      <p>📌<a href="/ModeloDeDominio/README.md">Modelo del dominio</a>
-      <p>📌<a href="/ModeloDelDominio/EvolucioneModeloDelDominio.md">Evolución del modelo de dominio a lo largo del semestre </a></p>
-      <p>📌<a href="/src/Main.java">Archivo de Ejecución </a></p>
-    </td>
-<td valign=top>
-      <ul>
-        <li><a href="/CasosDeUso/Actividades/Actores.md">Actores</a></li>
-        <li><a href="/CasosDeUso/Actividades/CasosDeUso.md">Casos de Uso</a></li>
-        <li><a href="/CasosDeUso/diagramaDeContexto/diagramaDeContexto.md">Diagrama de Contexto</a></li>
-        <li><a href="/CasosDeUso/Actividades/Priorizar.md">Priorización de Casos de Uso</a></li>
-        <li><a href="/CasosDeUso/Actividades/Detallar.md">Detallado de Casos de Uso</a></li>
-        <li><a href="/CasosDeUso/Actividades/Prototipos/README.md">Prototipos</a></li>
-      </ul>
-    </td>
-  </tr>
-</table>
-
+📌[Archivo de Ejecución](/src/Main.java)
