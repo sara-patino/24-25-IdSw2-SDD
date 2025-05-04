@@ -14,10 +14,25 @@ Document <|-- Book
 Document <|-- Magazine
 Document <|-- Audiovisual
 
+' Nueva interfaz
+interface Loanable {
+    +boolean isAvailable()
+    +void setAvailable(boolean available)
+    +String getTitle()
+    +String display()
+}
+
+Loanable <|.up. Document
+Loanable <|.up. Material
+
 class Material {
     -String description
     +String getDescription()
     +void setDescription(String description)
+    +boolean isAvailable()
+    +void setAvailable(boolean available)
+    +String getTitle()
+    +String display()
 }
 
 class Storage {
@@ -56,7 +71,9 @@ abstract class Document {
     +void setTitle(String id)
     +String getAuthor()
     +void setAuthor(String id)
-    
+    +boolean isAvailable()
+    +void setAvailable(boolean available)
+    +String display()
 }
 
 class User {
@@ -146,5 +163,4 @@ class Loan {
   +int getMaxDays()
   +void createLoan(User user, Storage storage)
 }
-
 @enduml
