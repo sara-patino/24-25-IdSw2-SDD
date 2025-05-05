@@ -1,3 +1,5 @@
+[![Static Badge](https://img.shields.io/badge/Inicio-000000?style=flat-square&logo=kasasmart&logoColor=FFFFFF)](/README.md) [![Static Badge](https://img.shields.io/badge/Modelo%20de%20Dominio-000000?style=flat-square&logo=stackshare&logoColor=FFFFFF)](/ModeloDeDomminio/README.md)[![Static Badge](https://img.shields.io/badge/Código-000000?style=flat-square&logo=stackshare&logoColor=FFFFFF)](/ModeloDeDomminio/README.md)
+
 # Sistema de Gestión de Biblioteca Universitaria
 
 ## Descripción del Proyecto
@@ -11,10 +13,7 @@ Este proyecto tiene como objetivo la digitalización del sistema de gestión de 
 <table>
 <tr>
 <th>
-  
-### Modelo de Dominio
-</th>
-<th>
+
 
 ### Disciplina de Requisitos
 
@@ -22,11 +21,6 @@ Este proyecto tiene como objetivo la digitalización del sistema de gestión de 
 </tr>
 <tr></tr>
   <tr>
-    <td valign=top>
-      <p>📌<a href="/ModeloDeDominio/README.md">Modelo del dominio</a>
-      <p>📌<a href="/ModeloDelDominio/EvolucioneModeloDelDominio.md">Evolución del modelo de dominio a lo largo del semestre </a></p>
-      <p>📌<a href="/src/Main.java">Archivo de Ejecución </a></p>
-    </td>
 <td valign=top>
       <ul>
         <li><a href="/CasosDeUso/Actividades/Actores.md">Actores</a></li>
