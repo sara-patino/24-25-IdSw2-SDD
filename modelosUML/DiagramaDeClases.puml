@@ -5,21 +5,34 @@ LibraryManager o-- User
 LibraryManager o-- Loan
 Storage -right-* Loan
 Loan *-right- User
-Storage *-- Book
-Storage *-- Magazine
-Storage *-- Material
-Storage *-- Classroom
-Storage *-- Audiovisual
-Service <|-up- Classroom
-Service <|-up- Material
-Document <|-up- Book
-Document <|-up- Magazine
-Document <|-up- Audiovisual
+Storage *-- Document
+Storage *-- Service
+
+Service <|-- Classroom
+Service <|-- Material
+Document <|-- Book
+Document <|-- Magazine
+Document <|-- Audiovisual
+
+' Nueva interfaz
+interface Loanable {
+    +boolean isAvailable()
+    +void setAvailable(boolean available)
+    +String getTitle()
+    +String display()
+}
+
+Loanable <|.up. Document
+Loanable <|.up. Material
 
 class Material {
     -String description
     +String getDescription()
     +void setDescription(String description)
+    +boolean isAvailable()
+    +void setAvailable(boolean available)
+    +String getTitle()
+    +String display()
 }
 
 class Storage {
@@ -58,7 +71,9 @@ abstract class Document {
     +void setTitle(String id)
     +String getAuthor()
     +void setAuthor(String id)
-    
+    +boolean isAvailable()
+    +void setAvailable(boolean available)
+    +String display()
 }
 
 class User {
@@ -148,5 +163,4 @@ class Loan {
   +int getMaxDays()
   +void createLoan(User user, Storage storage)
 }
-
 @enduml

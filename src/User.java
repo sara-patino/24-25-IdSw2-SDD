@@ -4,6 +4,7 @@ public class User {
     private String email;
     private String type;
     private int maxItems;
+    private int suspendedDays;
 
     public User(int id, String name, String email, String type, int maxItems) {
         this.id = id;
@@ -11,38 +12,35 @@ public class User {
         this.email = email;
         this.type = type;
         this.maxItems = maxItems;
+        this.suspendedDays = 0;
     }
 
     public int getId() {
         return id;
     }
 
+    public String display() {
+        return name + " (" + type + ")";
+    }
+
     public String getName() {
         return name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public int getMaxItems() {
-        return maxItems;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getType() {
+        return type;
     }
 
     public void setType(String type) {
@@ -51,5 +49,17 @@ public class User {
 
     public void setMaxItems(int maxItems) {
         this.maxItems = maxItems;
+    }
+
+    public int getMaxItems() {
+        return maxItems;
+    }
+
+    public void addSuspension(int days) {
+        suspendedDays += days;
+    }
+
+    public int getSuspendedDays() {
+        return suspendedDays;
     }
 }

@@ -8,8 +8,11 @@ Este proyecto tiene como objetivo la digitalización del sistema de gestión de 
 
 - [¿Qué es? ¿Cuál es la problemática? ¿Cuál es el objetivo de este proyecto?](/introduccion/introduccion.md)
 
+📌[Modelo del dominio](/ModeloDeDominio/README.md)
 
+📌[Evolución del modelo de dominio a lo largo del semestre](/ModeloDelDominio/EvolucioneModeloDelDominio.md)
 
+<<<<<<< HEAD
 <table>
 <tr>
 <th>
@@ -34,3 +37,6 @@ Este proyecto tiene como objetivo la digitalización del sistema de gestión de 
   </tr>
 </table>
 
+=======
+📌[Archivo de Ejecución](/src/Main.java)
+>>>>>>> 4c59adc309135fe17cd7213f1c05b48c9b3de10b

@@ -1,11 +1,38 @@
-public class Material extends Service {
-    public String descripcion;
-
-    public String getDescripcion() {
-        return descripcion;
+public class Material extends Service implements Loanable {
+    private String description;
+    
+    public Material(int id, String name, String description) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.available = true;
     }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    
+    public String getDescription() {
+        return description;
+    }
+    
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    
+    @Override
+    public boolean isAvailable() {
+        return available;
+    }
+    
+    @Override
+    public void setAvailable(boolean available) {
+        this.available = available;
+    }
+    
+    @Override
+    public String getTitle() {
+        return name;
+    }
+    
+    @Override
+    public String display() {
+        return "[MATERIAL] \"" + name + "\" - Description: " + description;
     }
 }
