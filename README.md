@@ -1,4 +1,8 @@
-[![Static Badge](https://img.shields.io/badge/Inicio-000000?style=flat-square&logo=kasasmart&logoColor=FFFFFF)](/README.md) [![Static Badge](https://img.shields.io/badge/Modelo%20de%20Dominio-000000?style=flat-square&logo=stackshare&logoColor=FFFFFF)](/ModeloDeDomminio/README.md)[![Static Badge](https://img.shields.io/badge/Código-000000?style=flat-square&logo=stackshare&logoColor=FFFFFF)](/ModeloDeDomminio/README.md)
+<div align=right>
+
+[![Static Badge](https://img.shields.io/badge/Inicio-FFFFFF?style=flat-square&logo=kasasmart&logoColor=000000)](/README.md) [![Static Badge](https://img.shields.io/badge/Modelo%20de%20Dominio-FFFFFF?style=flat-square&logo=stackshare&logoColor=000000)](/ModeloDeDominio/README.md) [![Static Badge](https://img.shields.io/badge/Código-FFFFFF?style=flat-square&logo=stackshare&logoColor=000000)](/src) [![Static Badge](https://img.shields.io/badge/Evolución%20MdD-FFFFFF?style=flat-square&logo=stackshare&logoColor=000000)](/ModeloDelDominio/EvolucionModeloDelDominio.md)
+
+</div>
 
 # Sistema de Gestión de Biblioteca Universitaria
 
@@ -7,15 +11,6 @@
 Este proyecto tiene como objetivo la digitalización del sistema de gestión de préstamos y recursos de una biblioteca universitaria. La biblioteca contiene diversos tipos de materiales y atiende a diferentes tipos de usuarios, permitiendo administrar préstamos, devoluciones, reservas y sanciones por retrasos. También se llevará un registro detallado del inventario y su disponibilidad.
 
 - [¿Qué es? ¿Cuál es la problemática? ¿Cuál es el objetivo de este proyecto?](/introduccion/introduccion.md)
-
-📌[Modelo del dominio](/ModeloDeDominio/README.md)
-
-📌[Evolución del modelo de dominio a lo largo del semestre](/ModeloDelDominio/EvolucioneModeloDelDominio.md)
-
-<<<<<<< HEAD
-<table>
-<tr>
-<th>
 
 
 ### Disciplina de Requisitos
@@ -36,7 +31,3 @@ Este proyecto tiene como objetivo la digitalización del sistema de gestión de 
     </td>
   </tr>
 </table>
-
-=======
-📌[Archivo de Ejecución](/src/Main.java)
->>>>>>> 4c59adc309135fe17cd7213f1c05b48c9b3de10b
