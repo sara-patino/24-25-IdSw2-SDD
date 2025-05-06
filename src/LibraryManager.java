@@ -181,4 +181,25 @@ public class LibraryManager {
     public List<Loan> getLoans() {
         return loans;
     }
+
+    public void createDefualtStorage() {
+        addUser("Admin", "admin@uni.edu", "admin");
+        addUser("Maria Lopez", "maria@uni.edu", "student");
+        addUser("John Perez", "john@uni.edu", "teacher");
+
+        Book book1 = new Book(1, "Python for All", "Raul Gomez", 2025, "Editorial X", "Programming", "978-xxx", 3);
+        getStorage().addBook(book1);
+
+        Magazine magazine1 = new Magazine(2, "Python Code #45", "Dev Press", 2025, 45, "03/2025", "Technology");
+        getStorage().addMagazine(magazine1);
+
+        Audiovisual audiovisual1 = new Audiovisual(3, "Nature Documentary", "BBC", 2020, "MP4", 90, "Wildlife");
+        getStorage().addAudiovisual(audiovisual1);
+
+        Material material1 = new Material(4, "Canon 15x", "Canon digital camera");
+        getStorage().addMaterial(material1);
+
+        Classroom classroom1 = new Classroom(5, "Room 101", 30);
+        getStorage().addClassroom(classroom1);
+    }
 }

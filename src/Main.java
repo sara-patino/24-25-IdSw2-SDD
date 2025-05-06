@@ -6,22 +6,7 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        // Cargar un administrador por defecto (por ejemplo)
-        libraryManager.addUser("Admin", "admin@uni.edu", "admin");
-        libraryManager.addUser("Maria Lopez", "maria@uni.edu", "student");
-        libraryManager.addUser("John Perez", "john@uni.edu", "teacher");
-
-        Book book1 = new Book(1, "Python for All", "Raul Gomez", 2025, "Editorial X", "Programming", "978-xxx", 3);
-        libraryManager.getStorage().addBook(book1);
-
-        Magazine magazine1 = new Magazine(2, "Python Code #45", "Dev Press", 2025, 45, "03/2025", "Technology");
-        libraryManager.getStorage().addMagazine(magazine1);
-
-        Audiovisual audiovisual1 = new Audiovisual(3, "Nature Documentary", "BBC", 2020, "MP4", 90, "Wildlife");
-        libraryManager.getStorage().addAudiovisual(audiovisual1);
-
-        Material material1 = new Material(4, "Canon 15x", "Canon digital camera");
-        libraryManager.getStorage().addMaterial(material1);
+        libraryManager.createDefualtStorage();
 
         System.out.println("===== BIENVENIDO AL GESTOR DE BIBLIOTECA =====");
         System.out.print("Ingrese su correo: ");
@@ -143,4 +128,5 @@ public class Main {
         System.out.println("¡Gracias por usar el sistema!");
         scanner.close();
     }
+
 }
