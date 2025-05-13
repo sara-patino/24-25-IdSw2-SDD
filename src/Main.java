@@ -54,7 +54,7 @@ public class Main {
                     System.out.print("ID del material: ");
                     int idMaterial = scanner.nextInt();
                     scanner.nextLine();
-                    System.out.print("Tipo de material (book/magazine/audiovisual/material): ");
+                    System.out.print("Tipo de material (book/magazine/audiovisual/material/classroom): ");
                     String tipoMat = scanner.nextLine();
                     System.out.print("Días de préstamo: ");
                     int dias = scanner.nextInt();

@@ -62,6 +62,9 @@ public class LibraryManager {
             case "material":
                 item = storage.getMaterialById(itemId);
                 break;
+            case "classroom":
+                item = storage.getClassroomById(itemId);
+                break;
             default:
                 System.out.println("Invalid item type.");
                 return;
@@ -121,6 +124,10 @@ public class LibraryManager {
         System.out.println("Materials:");
         for (Material m : storage.getMaterials()) {
             System.out.println(m.display());
+        }
+        System.out.println("Classrooms:");
+        for (Classroom c : storage.getClassrooms()) {
+            System.out.println(c.display());
         }
     }
 
