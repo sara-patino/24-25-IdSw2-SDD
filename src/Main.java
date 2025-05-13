@@ -37,6 +37,7 @@ public class Main {
                 System.out.println("7. Mostrar usuarios");
             }
 
+            System.out.println("8. Mostrar préstamos activos");
             System.out.println("0. Salir");
             System.out.print("Seleccione una opción: ");
 
@@ -125,6 +126,10 @@ public class Main {
                 case 7:
                     if (isAdmin)
                         libraryManager.showUsers();
+                    break;
+
+                case 8:
+                    libraryManager.showActiveLoansByUser(currentUser);
                     break;
 
                 case 0:
