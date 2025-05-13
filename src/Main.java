@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -63,6 +64,18 @@ public class Main {
 
                 case 3:
                     libraryManager.showActiveLoansByUser(currentUser);
+                    List<Loan> activeLoans = libraryManager.getLoans();
+                    boolean hasLoans = false;
+                    for (Loan loan : activeLoans) {
+                        if (loan.getUser().getId() == currentUser.getId()) {
+                            hasLoans = true;
+                            break;
+                        }
+                    }
+                    if (!hasLoans) {
+                        break; // Vuelve al menú si no hay préstamos a devolver
+                    }
+
                     System.out.print("Índice del préstamo a devolver: ");
                     int index = scanner.nextInt();
                     scanner.nextLine();
