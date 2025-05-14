@@ -189,7 +189,7 @@ public class LibraryManager {
         return loans;
     }
 
-    public void createDefualtStorage() {
+    public void createDefaultStorage() {
         addUser("Admin", "admin@uni.edu", "admin");
         addUser("Maria Lopez", "maria@uni.edu", "student");
         addUser("John Perez", "john@uni.edu", "teacher");
