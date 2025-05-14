@@ -57,7 +57,7 @@ public class LibraryManager {
                 item = storage.getMagazineById(itemId);
                 break;
             case "audiovisual":
-                item = storage.getAudiovisualById(itemId);
+                item = storage.getAudioVisualById(itemId);
                 break;
             case "material":
                 item = storage.getMaterialById(itemId);
@@ -118,7 +118,7 @@ public class LibraryManager {
             System.out.println(m.display());
         }
         System.out.println("Audiovisuals:");
-        for (Audiovisual a : storage.getAudiovisuals()) {
+        for (AudioVisual a : storage.getAudiovisuals()) {
             System.out.println(a.display());
         }
         System.out.println("Materials:");
@@ -200,8 +200,8 @@ public class LibraryManager {
         Magazine magazine1 = new Magazine(2, "Python Code #45", "Dev Press", 2025, 45, "03/2025", "Technology");
         getStorage().addMagazine(magazine1);
 
-        Audiovisual audiovisual1 = new Audiovisual(3, "Nature Documentary", "BBC", 2020, "MP4", 90, "Wildlife");
-        getStorage().addAudiovisual(audiovisual1);
+        AudioVisual audiovisual1 = new AudioVisual(3, "Nature Documentary", "BBC", 2020, "MP4", 90, "Wildlife");
+        getStorage().addAudioVisual(audiovisual1);
 
         Material material1 = new Material(4, "Canon 15x", "Canon digital camera");
         getStorage().addMaterial(material1);
