@@ -13,6 +13,6 @@ public class Audiovisual extends Document {
 
     @Override
     public String display() {
-        return "[AUDIOVISUAL] \"" + title + "\" - Format: " + format;
+        return "[AUDIOVISUAL] \"" + getTitle() + "\" - Format: " + format;
     }
 }
