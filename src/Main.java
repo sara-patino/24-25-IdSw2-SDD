@@ -7,19 +7,33 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        libraryManager.createDefualtStorage();
+        libraryManager.createDefaultStorage();
 
         System.out.println("===== BIENVENIDO AL GESTOR DE BIBLIOTECA =====");
-        System.out.print("Ingrese su correo: ");
-        String correoLogin = scanner.nextLine();
+        
+        boolean usuarioValido = false;
+        User currentUser = null;
 
-        User currentUser = libraryManager.getUserByEmail(correoLogin);
+        while (!usuarioValido) {
+            System.out.print("Ingrese su correo: ");
+            String correoLogin = scanner.nextLine();
 
-        if (currentUser == null) {
-            System.out.println("Usuario no encontrado. Fin del programa.");
-            return;
+            currentUser = libraryManager.getUserByEmail(correoLogin);
+
+            if (currentUser == null) {
+                System.out.println("Usuario no encontrado.");
+                System.out.print("¿Desea intentar nuevamente? (si/no): ");
+                String respuesta = scanner.nextLine();
+
+                if (respuesta.equalsIgnoreCase("no")) {
+                    System.out.println("Saliendo del sistema...");
+                    return;
+                }
+            } else {
+                usuarioValido = true;
+            }
         }
-
+        
         boolean isAdmin = currentUser.getType().equalsIgnoreCase("admin");
         boolean running = true;
 
@@ -29,15 +43,15 @@ public class Main {
             System.out.println("1. Buscar material");
             System.out.println("2. Crear préstamo");
             System.out.println("3. Devolver préstamo");
+            System.out.println("4. Mostrar préstamos activos");
 
             if (isAdmin) {
-                System.out.println("4. Agregar usuario");
-                System.out.println("5. Agregar libro");
-                System.out.println("6. Mostrar inventario");
-                System.out.println("7. Mostrar usuarios");
+                System.out.println("5. Agregar usuario");
+                System.out.println("6. Agregar libro");
+                System.out.println("7. Mostrar inventario");
+                System.out.println("8. Mostrar usuarios");
             }
-
-            System.out.println("8. Mostrar préstamos activos");
+            
             System.out.println("0. Salir");
             System.out.print("Seleccione una opción: ");
 
@@ -84,6 +98,10 @@ public class Main {
                     break;
 
                 case 4:
+                    libraryManager.showActiveLoansByUser(currentUser);
+                    break;
+
+                case 5:
                     if (!isAdmin)
                         break;
                     System.out.print("Nombre: ");
@@ -95,7 +113,7 @@ public class Main {
                     libraryManager.addUser(nombre, correo, tipo);
                     break;
 
-                case 5:
+                case 6:
                     if (!isAdmin)
                         break;
                     System.out.print("Título: ");
@@ -118,18 +136,14 @@ public class Main {
                     libraryManager.getStorage().addBook(nuevoLibro);
                     break;
 
-                case 6:
+                case 7:
                     if (isAdmin)
                         libraryManager.showInventory();
                     break;
 
-                case 7:
+                case 8:
                     if (isAdmin)
                         libraryManager.showUsers();
-                    break;
-
-                case 8:
-                    libraryManager.showActiveLoansByUser(currentUser);
                     break;
 
                 case 0:
