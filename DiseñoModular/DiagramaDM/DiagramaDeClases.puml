@@ -1,0 +1,241 @@
+@startuml
+Main --> LibraryManager : "instancia y ejecuta"
+LibraryManager o-- Storage
+LibraryManager o-- User
+LibraryManager o-- Loan
+Storage -right-* Loan
+Loan *-right- User
+Storage *-- Document
+Storage *-- Service
+
+Service <|-- Material
+Document <|-- Book
+Document <|-- Magazine
+Document <|-- Audiovisual
+
+Loanable <|.up. Document
+Loanable <|.up. Material
+Loanable <|.up. Classroom
+
+Storable <|.up. Audiovisual
+Storable <|.up. Book
+Storable <|.up. Classroom
+Storable <|.up. Magazine
+Storable <|.up. Material
+
+Storable <|-- StorageList
+
+class User {
+    -int id
+    -String name
+    -String email
+    -String type
+    -int maxItems
+    -int suspendedDays
+    User(int id, String name, String email, String type, int maxItems)
+    +String getId()
+    +String display()
+    +String getName()
+    +void setName(String name)
+    +String getEmail()
+    +void setEmail(String email)
+    +String getType()
+    +void setType(String type)
+    +void setMaxItems(int maxItems)
+    +int getMaxItems()
+    +void addSuspension(int days)
+    +int getSuspendedDays()
+}
+
+class StorageList {
+    -items : List<T>
+    +void add(T item)
+    +void erase(int id)
+    +T getById(int id)
+    +List<T> search(String keyword)
+    List<T> getAll()
+}
+
+class Storage {
+    - magazines: List<Magazine> 
+    - books: List<Book> 
+    - audiovisuals: List<Audiovisual>
+    - materials: List<Material>
+    - classrooms: List<Classroom>
+    + void addBook(Book book)
+    + void addMagazine(Magazine magazine)
+    + void addAudiovisual(Audiovisual audiovisual)
+    + void addClassroom(Classroom classroom)
+    + void addMaterial(Material material)
+    + void eraseBook(int id)
+    + void eraseMagazine(int id)
+    + void eraseAudiovisual(int id)
+    + void eraseClassroom(int id)
+    + void eraseMaterial(int id)
+    + Book getBookById(int id)
+    + Magazine getMagazineById(int id)
+    + Audiovisual getAudiovisualById(int id)
+    + Classroom getClassroomById(int id)
+    + Material getMaterialById(int id)
+    + List<Loanable> search(String keyword)
+    + List<Book> getBooks()
+    + List<Magazine> getMagazines()
+    + List<AudioVisual> getAudiovisuals()
+    + List<Material> getMaterials()
+    + List<Classroom> getClassrooms()
+}
+
+interface Storable{
+    +int getId()
+    +String getTitle()
+}
+
+abstract class Service {
+    -int id
+    -String name
+    -boolean available
+    +String getId()
+    +String getName()
+    +void setName(String id)
+    +boolean isAvailable()
+    +void setAvailable(boolean available)
+}
+
+class Material {
+    -String description
+    +Material(int id, String name, String description)
+    +String getDescription()
+    +void setDescription(String description)
+    +boolean isAvailable()
+    +void setAvailable(boolean available)
+    +String getTitle()
+    +String display()
+}
+
+class Main {
+    +static void main(String[] args)
+    +User handleLogin(Scanner scanner, LibraryManager libraryManager)
+    +void showMenu(User currentUser)
+    +int getUserOption(Scanner scanner)
+    +void searchMaterial(Scanner scanner, LibraryManager libraryManager)
+    +void createLoan(Scanner scanner, User currentUser, LibraryManager libraryManager)
+    +void returnLoan(Scanner scanner, User currentUser, LibraryManager libraryManager)
+    +void addUser(Scanner scanner, LibraryManager libraryManager)
+    +void addBook(Scanner scanner, LibraryManager libraryManager)
+}
+
+class Magazine {
+    -String publisher
+    -int issueNumber
+    -String monthYear
+    -String theme
+    -Magazine(Builder builder)
+    +String display(
+    +static class Builder 
+}
+
+interface Loanable {
+    +boolean isAvailable()
+    +void setAvailable(boolean available)
+    +String getTitle()
+    +String display()
+}
+
+class LoanManager {
+    +void lendBook(Book book)
+    +void returnBook(Book book)
+}
+
+class Loan {
+  -User user
+  -Loanable item
+  -LocalDate loanDate
+  -LocalDate dueDate
+  -String loanCode
+  +Loan(User user, Loanable item, int maxDays)
+  +void markItemAsUnavailable(Loanable item)
+  +void lendBook(Book book)
+  +String generateLoanCode()
+  +long processReturn()
+  +long calculateDelay()
+  +void returnItem()
+  +String display()
+  +User getUser()
+}
+
+class LibraryManager {
+    -Storage storage
+    -users: List<User>
+    -loans: List<Loan>
+    +LibraryManager()
+    +void addUser(String name, String email, String type)
+    +int getMaxItemsForUserType(String type)
+    +void showSearch(String keyword)
+    +void displayItems(List<Loanable> items)
+    +void showInventory()
+    +void displayInventory(List<T> items, String category)
+    +void showActiveLoans()
+    +void showUsers()
+    +User getUserById(int userId)
+    +User getUserByEmail(String email)
+    +void createLoan(int userId, int itemId, String itemType, int maxDays)
+    +Loanable getItemByType(int itemId, String itemType)
+    +int getUserLoanCount(User user)
+    +void processReturn(int loanIndex)
+    +void showActiveLoansByUser(User user) 
+    +List<Loan> getLoans()
+    +Storage getStorage()
+    +void createDefaultStorage() 
+}
+
+abstract class Document {
+    -int id
+    -String title
+    -String author
+    -int publicationYear
+    -boolean available
+    +Document(int id, String title, String author, int publicationYear)
+    +int getId()
+    +String getTitle()
+    +boolean isAvailable() 
+    +void setAvailable(boolean available)
+    +String display() \\ abstract
+}
+
+class Classroom {
+    -int id
+    -String name
+    -int capacity
+    -boolean available
+    +Classroom(int id, String name, int capacity)
+    +int getCapacity()
+    +void setCapacity(int capacity)
+    +boolean isAvailable()
+    +void setAvailable(boolean available)
+    +String getTitle()
+    +String display()
+    +int getId()
+}
+
+class Book {
+    -String isbn
+    -String publisher
+    -String genre
+    -int totalCopies
+    -int availableCopies
+    +Book(int id, String title, String author, int publicationYear, String publisher, String genre, String isbn, int totalCopies)
+    +String display()
+    +boolean canBeLent()
+    +void lend()
+    +void returnItem()
+}
+
+class Audiovisual {
+    -String format
+    -int duration
+    -String topic
+    +AudioVisual(int id, String title, String author, int publicationYear, String format, int duration,
+    String topic)
+    +String display()
+}
+@enduml
